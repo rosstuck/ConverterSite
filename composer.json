@@ -1,0 +1,7 @@
+{
+    "require": {
+        "tuck/converter-bundle": "dev-master",
+        "beberlei/assert": "@stable",
+        "symfony/yaml": "@stable"
+    }
+}
