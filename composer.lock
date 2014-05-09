@@ -1148,12 +1148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rosstuck/TuckConverterBundle.git",
-                "reference": "827dd212ad081a0480601a2a4ed2edfeb595acb6"
+                "reference": "6911c48f476fb2df61c50cb6810f94c5b4be2ee8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rosstuck/TuckConverterBundle/zipball/827dd212ad081a0480601a2a4ed2edfeb595acb6",
-                "reference": "827dd212ad081a0480601a2a4ed2edfeb595acb6",
+                "url": "https://api.github.com/repos/rosstuck/TuckConverterBundle/zipball/6911c48f476fb2df61c50cb6810f94c5b4be2ee8",
+                "reference": "6911c48f476fb2df61c50cb6810f94c5b4be2ee8",
                 "shasum": ""
             },
             "require": {
@@ -1186,7 +1186,7 @@
                 "container",
                 "convert"
             ],
-            "time": "2014-03-14 11:26:34"
+            "time": "2014-05-09 13:55:59"
         }
     ],
     "packages-dev": [
