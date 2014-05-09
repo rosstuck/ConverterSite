@@ -25,7 +25,7 @@ $(function() {
             if (response.status === 400) {
                 displayError('Validation error! Did you fill in something weird?', 'ConverterSite');
             } else {
-                displayError('Conversion error! Did you set the correct starting format in the dropdown? Is the input valid?', 'TuckConverterBundle');
+                displayError('Conversion error! Did you set the correct starting format in the dropdown? Try checking the <a href="/gotchas.html">common gotchas!</a>', 'TuckConverterBundle');
             }
             // Remove error
         }).done(function () {
