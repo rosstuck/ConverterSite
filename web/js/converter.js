@@ -23,7 +23,9 @@ $(function() {
     };
 
     var validateInput = function (config) {
-        if ($.trim(config) === '') {
+        config = $.trim(config);
+
+        if (config === '') {
             displayError('Config is empty. Did you paste something into the "Current Config" field?', 'ConverterSite');
             return false;
         }
@@ -34,7 +36,7 @@ $(function() {
                 return false;
             }
 
-            if (config.trim().indexOf('<?xml') !== 0) {
+            if (config.indexOf('<?xml') !== 0) {
                 displayError('The config doesn\'t begin with a valid XML declaration. Did you paste the complete file, including the xml declaration and any parameters section?', 'TuckConverterBundle');
                 return false;
             }
