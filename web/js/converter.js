@@ -97,7 +97,7 @@ $(function() {
         // The paste event is actually pre-paste, so use a quick timeout hack
         setTimeout(function() {
             var format;
-            if ($el.val().trim().substring(0, 1) === '<') {
+            if ($.trim($el.val()).substring(0, 1) === '<') {
                 format = 'xml';
             } else {
                 if ($el.val().indexOf('=') !== -1) {
