@@ -11,10 +11,46 @@ $(function() {
             '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
             '</div>'
         );
-    }
+    };
+
+    // Cribbed from http://stackoverflow.com/a/20294226
+    var isValidXMLString = function(xmlString) {
+        var parser = new DOMParser();
+        var parserErrorNS = parser.parseFromString('INVALID', 'text/xml').getElementsByTagName("parsererror")[0].namespaceURI;
+        var dom = parser.parseFromString(xmlString, 'text/xml');
+        if(dom.getElementsByTagNameNS(parserErrorNS, 'parsererror').length > 0) {
+            return false;
+        }
+        return true;
+    };
+
+    var validateInput = function (config) {
+        if (config.trim() === '') {
+            displayError('Config is empty. Did you paste something into the "Current Config" field?', 'ConverterSite');
+            return false;
+        }
+
+        if ($('#old_format').val() === 'xml') {
+            if (!isValidXMLString(config)) {
+                displayError('The config pasted doesn\'t appear to be valid XML. Are you missing any brackets, etc?', 'TuckConverterBundle');
+                return false;
+            }
+
+            if (config.trim().indexOf('<?xml') !== 0) {
+                displayError('The config doesn\'t begin with a valid XML declaration. Did you paste the complete file, including the xml declaration and any parameters section?', 'TuckConverterBundle');
+                return false;
+            }
+        }
+
+        return true;
+    };
 
     // The basic conversion function
     var convert = function(newFormat) {
+        if (!validateInput($('#content').val())) {
+            return $.Deferred().reject();
+        }
+
         return $.post('convert.php', {
             new_format: newFormat,
             old_format: $('#old_format').val(),
@@ -35,7 +71,7 @@ $(function() {
         }).always(function () {
             $('#diagram').empty();
         });
-    }
+    };
 
     // Convert to a chosen format
     $("#convert-from-list a").click(function(e){
