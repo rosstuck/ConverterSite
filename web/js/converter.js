@@ -13,19 +13,17 @@ $(function() {
         );
     };
 
-    // Cribbed from http://stackoverflow.com/a/20294226
     var isValidXMLString = function(xmlString) {
-        var parser = new DOMParser();
-        var parserErrorNS = parser.parseFromString('INVALID', 'text/xml').getElementsByTagName("parsererror")[0].namespaceURI;
-        var dom = parser.parseFromString(xmlString, 'text/xml');
-        if(dom.getElementsByTagNameNS(parserErrorNS, 'parsererror').length > 0) {
+        try {
+            $.parseXML(xmlString);
+            return true;
+        } catch(e) {
             return false;
         }
-        return true;
     };
 
     var validateInput = function (config) {
-        if (config.trim() === '') {
+        if ($.trim(config) === '') {
             displayError('Config is empty. Did you paste something into the "Current Config" field?', 'ConverterSite');
             return false;
         }
