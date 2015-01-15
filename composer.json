@@ -3,6 +3,6 @@
         "tuck/converter-bundle": "dev-master",
         "beberlei/assert": "@stable",
         "symfony/yaml": "@stable",
-        "symfony/dependency-injection": "dev-master"
+        "symfony/dependency-injection": "2.6.x-dev"
     }
 }
