@@ -3,7 +3,7 @@
         "tuck/converter-bundle": "dev-master",
         "beberlei/assert": "@stable",
         "symfony/yaml": "@stable",
-        "symfony/dependency-injection": "2.7.*",
-        "symfony/expression-language": "2.7.*"
+        "symfony/dependency-injection": "~2.7",
+        "symfony/expression-language": "~2.7"
     }
 }
